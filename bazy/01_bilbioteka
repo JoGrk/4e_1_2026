@@ -1,0 +1,19 @@
+mysql -u root
+
+CREATE DATABASE 4e_1_biblioteka;
+
+SHOW DATABASES;
+
+USE 4e_1_biblioteka;
+
+CREATE TABLE ksiazki(
+    autor VARCHAR(250),
+    tytul VARCHAR(200),
+    cena INT
+);
+
+SHOW TABLES;
+DESC ksiazki;
+
+INSERT INTO ksiazki
+VALUES  
