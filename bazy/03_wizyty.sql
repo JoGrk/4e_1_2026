@@ -51,3 +51,61 @@ CREATE TABLE wizyty(
     data DATE,
     id_typ INT
 );
+
+--    ('Jan', 'Kowalski', '2026-09-11', 'Leczenie'),
+--     ('Jan', 'Kowalski', '2026-09-25', 'Profilaktyka'),
+--     ('Adam', 'Abacki', '2026-10-12', 'Kontrola');
+
+INSERT INTO klienci 
+(imie,nazwisko)
+VALUES
+('Jan', 'Kowalski'),
+('Adam', 'Abacki');
+
+INSERT INTO typy
+    (nazwa)
+VALUES
+    ('Leczenie'),
+    ('Profilaktyka'),
+    ('Kontrola');
+
+INSERT INTO wizyty
+    (id_klient, data, id_typ)
+VALUES
+    (1,'2026-09-11',1),
+    (1,'2026-09-25',2),
+    (2,'2026-10-12',3);
+
+INSERT INTO wizyty
+    (id_klient, data, id_typ)
+VALUES
+    (100,'2026-09-26',100);
+
+DELETE FROM klienci
+WHERE id = 2;
+
+DROP TABLE wizyty
+
+DROP TABLE typy
+
+DROP TABLE klienci
+
+CREATE TABLE klienci(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    imie VARCHAR(250),
+    nazwisko VARCHAR(250)
+);
+
+CREATE TABLE typy(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nazwa VARCHAR(250)
+);
+
+CREATE TABLE wizyty(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_klient INT,
+    data DATE,
+    id_typ INT,
+    FOREIGN KEY(id_klient)REFERENCES klienci(id),
+    FOREIGN KEY(id_typ)REFERENCES typy(id)
+);
