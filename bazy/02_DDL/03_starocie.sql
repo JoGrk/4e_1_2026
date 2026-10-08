@@ -41,5 +41,8 @@ ALTER rok SET DEFAULT '2026-10-06';
  ALTER TABLE samochody
 ALTER kolor SET DEFAULT 'Czarny';
 -- 9. usuń kolumnę rok
- 
+ ALTER TABLE samochody
+ DROP COLUMN 'rok';
 -- 10. usuń wartość domyślną dla pola kolor
+ALTER TABLE samochody
+ALTER kolor drop DEFAULT ;
