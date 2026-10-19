@@ -73,7 +73,9 @@ CHANGE SSN naukowiec int not null;
 ALTER TABLE Naukowcy
 DROP Data_urodzenia;
 -- 15. Do tabeli Przypisanie dodaj klucze obce na obu polach.
-
+ALTER TABLE Przypisanie
+ADD FOREIGN KEY(naukowiec) REFERENCES naukowcy(kod),
+ADD FOREIGN KEY(projekt) REFERENCES projekty(kod);
 -- 16. Zaimportuj dane
 
 INSERT INTO Naukowcy(Kod,Nazwisko) 
