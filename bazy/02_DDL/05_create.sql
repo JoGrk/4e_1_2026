@@ -68,7 +68,7 @@ CREATE TABLE posty(
     id_postu INT PRIMARY KEY AUTO_INCREMENT,
     tresc BLOB,
     kategoria ENUM('rozrywka','nauka','sport'),
-    utworzony TIMESTAMP DEFAULT
+    utworzony DATETIME DEFAULT current_timestamp
 );
 
 
@@ -77,3 +77,11 @@ CREATE TABLE posty(
 -- klucz podstawowy na polach id_postu i id_autora
 -- klucz obcy na polu id_postu odwołujacy się do klucza podstawowego tabeli posty
 -- klucz obcy na polu id_autora odwołujący się do klucza podstawowego tabeli autorzy
+
+CREATE TABLE autorzy_postow(
+    id_postu INT,
+    id_autora INT,
+    PRIMARY KEY(id_postu,id_autora),
+    FOREIGN KEY (id_postu) REFERENCES posty(id_postu),
+    FOREIGN KEY (id_autora) REFERENCES autorzy(id_autora)
+);
