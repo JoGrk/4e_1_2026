@@ -137,11 +137,25 @@ SELECT *
 FROM Klienci
 WHERE nazwa LIKE '%n';
 -- 15. Wyświetl informacje o sprzedawcach, których pierwsza litera nazwiska to 'N', a czwarta to 'l'  (l jak liść)
+SELECT *
+FROM Sprzedawcy
+WHERE Nazwisko LIKE 'N__l%';
+
 
 -- 16. wyświetl klientów, którzy nie mają przypisanej oceny
-
+SELECT *
+FROM Klienci
+WHERE Ocena IS NULL;
 -- 17. wyświetl klientów, którzy mają ocenę niższą niż 200 oraz tych bez przypisanej oceny
-
+SELECT *
+FROM Klienci
+WHERE Ocena < 200 || Ocena IS NULL
 -- 18. Wyświetl dane klientów posortowane alfabetycznie według miasta
-
+SELECT Nazwa, Miasto
+FROM Klienci
+ORDER BY Miasto;
 -- 19. Wyświetl sprzedawców z dwiema najwyższymi prowizjami
+SELECT *
+FROM Sprzedawcy
+ORDER BY prowizja DESC
+LIMIT 2;
