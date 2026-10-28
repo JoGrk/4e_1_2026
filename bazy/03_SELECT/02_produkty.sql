@@ -45,5 +45,6 @@ WHERE NAZWA = 'chleb' OR nazwa = 'sok' OR nazwa = 'chipsy';
 SELECT nazwa, cena
 FROM produkty
 WHERE NAZWA in ('chleb', 'sok', 'chipsy');
+
 CREATE TABLE IF NOT EXISTS produkty(`id` int(2), `nazwa` varchar(9), `cena` int(2), `id_sklepu` int(1));
 INSERT INTO produkty (`id`, `nazwa`, `cena`, `id_sklepu`) VALUES (1, 'bułka', 2, 1), (2, 'sok', 4, 1), (3, 'chipsy', 6, 1), (4, 'cola', 8, 1), (5, 'chleb', 5, 1), (6, 'ciastka', 7, 1), (7, 'czosnek', 1, 1), (8, 'chleb', 6, 2), (9, 'ciastka', 11, 2), (10, 'masło', 8, 2), (11, 'czekolada', 5, 2), (12, 'sok', 7, 2);
